@@ -1,4 +1,3 @@
-import React from 'react';
 import Signin from './src/loginPage';
 import SignUp from './src/signUpPage';
 import {NavigationContainer} from '@react-navigation/native';
@@ -11,9 +10,9 @@ const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="signup">
-        <Stack.Screen name="signup" component={SignUp} />
+      <Stack.Navigator initialRouteName="signin">
         <Stack.Screen name="signin" component={Signin} />
+        <Stack.Screen name="signup" component={SignUp} />
         <Stack.Screen
           name="home"
           component={Home}
@@ -21,7 +20,13 @@ function App(): React.JSX.Element {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="addnotetext" component={AddNoteText} />
+        <Stack.Screen
+          name="addnotetext"
+          options={{
+            headerShown: false,
+          }}
+          component={AddNoteText}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
